@@ -1,7 +1,4 @@
 package com.example;
-
-
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -12,7 +9,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 @Service
 @Component
 public class Sender {
@@ -24,19 +20,14 @@ public class Sender {
 	public Sender(final RabbitTemplate rabbitTemplate) {
 		this.rabbitTemplate = rabbitTemplate;
 	}
-
 //	
 //	  public void schedule() { 
 //		  generateBPRandom();
 //		  generateHeartRateRandom();
 //		  generateOLRandom(); 
 //		  }
-	 
-	
-
 	@Scheduled(fixedDelay = 3000)
 	public int generateBPRandom() {
-
 		 int minbp = 90;
 		 int maxbp = 140;
 		Random random = new Random();
@@ -59,7 +50,6 @@ public class Sender {
 
 	@Scheduled(fixedDelay = 5000)
 	public int generateHeartRateRandom() {
-
 		 int minhr = 60;
 		 int maxhr = 100;
 		Random random = new Random();
@@ -76,10 +66,8 @@ public class Sender {
 		log.info("HeartRate Sent Successfully");
 		return 0;
 	}
-
 	@Scheduled(fixedDelay = 8000)
 	public int generateOLRandom() {
-
 		 int minol = 75;
 		 int maxol = 100;
 		Random random = new Random();
